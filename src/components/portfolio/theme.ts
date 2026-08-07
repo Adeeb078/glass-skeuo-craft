@@ -50,7 +50,7 @@ export const STORAGE_KEY = "portfolio-theme";
 export const DEFAULT_THEME: ThemeId = "sand";
 
 export function applyTheme(id: ThemeId) {
-  const theme = THEMES.find((t) => t.id === id) ?? THEMES[0];
+  const theme = THEMES.find((t) => t.id === id) ?? THEMES[0]!;
   const root = document.documentElement;
   root.dataset["theme"] = theme.id;
   root.classList.toggle("dark", theme.dark);
