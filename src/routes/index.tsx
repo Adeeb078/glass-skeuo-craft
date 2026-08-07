@@ -3,6 +3,9 @@ import { Hero } from "@/components/portfolio/Hero";
 import { About, Skills } from "@/components/portfolio/About";
 import { Projects, Experience } from "@/components/portfolio/Projects";
 import { Contact } from "@/components/portfolio/Contact";
+import { ThemeSwitcher } from "@/components/portfolio/ThemeSwitcher";
+import { CustomCursor } from "@/components/portfolio/CustomCursor";
+import { Reveal } from "@/components/portfolio/Reveal";
 
 const title = "Adeeb Abdurahiman — DevOps Engineer Portfolio";
 const description =
@@ -25,12 +28,24 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <main className="min-h-screen bg-background">
+      <ThemeSwitcher />
+      <CustomCursor />
       <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Experience />
-      <Contact />
+      <Reveal>
+        <About />
+      </Reveal>
+      <Reveal delay={60}>
+        <Skills />
+      </Reveal>
+      <Reveal>
+        <Projects />
+      </Reveal>
+      <Reveal delay={60}>
+        <Experience />
+      </Reveal>
+      <Reveal>
+        <Contact />
+      </Reveal>
     </main>
   );
 }
