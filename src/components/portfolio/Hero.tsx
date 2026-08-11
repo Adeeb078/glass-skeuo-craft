@@ -63,9 +63,10 @@ export function Hero() {
             <dl className="mt-6 space-y-3 text-sm">
               {[
                 ["Focus", "CI/CD & Automation"],
-                ["Clouds", "AWS"],
+                ["Cloud", "AWS · CloudFormation"],
                 ["Runtime", "Docker · Kubernetes"],
-                ["IaC", "Terraform · Ansible"],
+                ["Systems", "Linux · Bash · Python"],
+                ["Visa", "UAE Resident"],
               ].map(([k, v]) => (
                 <div key={k} className="flex items-baseline justify-between gap-4">
                   <dt className="text-muted-foreground">{k}</dt>
