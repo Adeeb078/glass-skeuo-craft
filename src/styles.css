@@ -358,3 +358,116 @@
   }
 }
 
+
+/* ---------- Scroll-driven background ---------- */
+.scroll-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  --scroll: 0;
+  --progress: 0;
+}
+
+.scroll-bg-grid {
+  position: absolute;
+  inset: -20%;
+  background-image:
+    linear-gradient(to right, var(--shade) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--shade) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.35;
+  transform: translate3d(0, calc(var(--scroll) * -0.06px), 0)
+    perspective(600px) rotateX(52deg) scale(1.4);
+  mask-image: radial-gradient(ellipse at 50% 30%, black, transparent 72%);
+}
+
+.scroll-bg-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(40px);
+  opacity: 0.55;
+  background: radial-gradient(
+    circle at 30% 30%,
+    color-mix(in oklab, var(--light-source) 60%, transparent),
+    color-mix(in oklab, var(--accent) 70%, transparent) 55%,
+    transparent 72%
+  );
+  will-change: transform;
+}
+
+.scroll-bg-orb-a {
+  width: 46vw;
+  height: 46vw;
+  top: -8vw;
+  left: -10vw;
+  transform: translate3d(
+    calc(var(--scroll) * 0.05px),
+    calc(var(--scroll) * -0.14px),
+    0
+  );
+}
+
+.scroll-bg-orb-b {
+  width: 34vw;
+  height: 34vw;
+  top: 40vh;
+  right: -8vw;
+  opacity: 0.4;
+  transform: translate3d(
+    calc(var(--scroll) * -0.04px),
+    calc(var(--scroll) * 0.1px),
+    0
+  );
+}
+
+.scroll-bg-orb-c {
+  width: 26vw;
+  height: 26vw;
+  bottom: -6vw;
+  left: 28vw;
+  opacity: 0.35;
+  transform: translate3d(0, calc(var(--scroll) * -0.07px), 0)
+    scale(calc(1 + var(--progress) * 0.35));
+}
+
+.scroll-bg-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120vw 60vh at 50% calc(20% + var(--progress) * 60%),
+    color-mix(in oklab, var(--light-source) 22%, transparent),
+    transparent 70%
+  );
+  opacity: calc(0.35 + var(--progress) * 0.4);
+}
+
+.scroll-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  transform-origin: left center;
+  transform: scaleX(var(--progress));
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--accent) 90%, transparent),
+    var(--light-source)
+  );
+  box-shadow: 0 1px 6px var(--shade);
+  border-radius: 0 2px 2px 0;
+}
+
+main > *:not(.scroll-bg) {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-bg-grid,
+  .scroll-bg-orb {
+    transform: none;
+  }
+}
