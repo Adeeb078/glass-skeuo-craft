@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Phone } from "lucide-react";
 import { profile } from "./data";
 import { SectionHeading } from "./SectionHeading";
 
@@ -23,6 +23,13 @@ export function Contact() {
             >
               <Mail className="h-4 w-4" />
               {profile.email}
+            </a>
+            <a
+              href={`tel:${profile.phone.replace(/\s/g, "")}`}
+              className="press emboss inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-foreground"
+            >
+              <Phone className="h-4 w-4" />
+              {profile.phone}
             </a>
             <a
               href={profile.github}

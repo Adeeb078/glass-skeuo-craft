@@ -1,4 +1,4 @@
-import { skillGroups } from "./data";
+import { certifications, languages, skillGroups } from "./data";
 import { SectionHeading } from "./SectionHeading";
 
 export function About() {
@@ -8,17 +8,41 @@ export function About() {
         <SectionHeading eyebrow="01" title="About" />
         <div className="glass-panel grain mt-8 rounded-3xl p-7 sm:p-10">
           <p className="text-lg leading-relaxed text-foreground">
-            I work where code meets infrastructure. My day is spent turning manual, fragile release
-            steps into pipelines that anyone on the team can trust — building images, running tests,
-            promoting environments and rolling back cleanly when something is off.
+            DevOps engineer with hands-on training in AWS cloud infrastructure — EC2, S3,
+            CloudFormation and IAM — CI/CD pipeline workflows, Linux system administration and
+            Infrastructure-as-Code.
           </p>
           <p className="mt-5 leading-relaxed text-muted-foreground">
-            My focus areas are continuous delivery, container orchestration, infrastructure as code
-            and observability. I like systems that describe themselves: declarative infrastructure,
-            reproducible environments, dashboards that answer the question before it is asked. A
-            background in security research keeps me careful about secrets, access boundaries and
-            what actually ships into production.
+            I work with Git-based collaborative development, shell scripting automation and Docker
+            and Kubernetes fundamentals. A B.Tech Computer Science graduate, I'm looking to apply
+            automation and cloud engineering skills in production DevOps environments — building
+            repeatable infrastructure, documenting what I ship, and keeping systems observable.
           </p>
+
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            <div className="groove rounded-2xl p-5">
+              <h3 className="font-display text-sm font-semibold tracking-wide text-primary uppercase">
+                Certifications & Training
+              </h3>
+              <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                {certifications.map((c) => (
+                  <li key={c}>{c}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="groove rounded-2xl p-5">
+              <h3 className="font-display text-sm font-semibold tracking-wide text-primary uppercase">
+                Languages
+              </h3>
+              <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                {languages.map((l) => (
+                  <li key={l.name}>
+                    <span className="font-medium text-foreground">{l.name}</span> — {l.level}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
