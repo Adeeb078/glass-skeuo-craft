@@ -6,6 +6,7 @@ import { Contact } from "@/components/portfolio/Contact";
 import { ThemeSwitcher } from "@/components/portfolio/ThemeSwitcher";
 import { CustomCursor } from "@/components/portfolio/CustomCursor";
 import { Reveal } from "@/components/portfolio/Reveal";
+import { ScrollBackground } from "@/components/portfolio/ScrollBackground";
 
 const title = "Adeeb Abdurahiman — DevOps Engineer Portfolio";
 const description =
@@ -27,7 +28,8 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="relative min-h-screen bg-background">
+      <ScrollBackground />
       <ThemeSwitcher />
       <CustomCursor />
       <Hero />
