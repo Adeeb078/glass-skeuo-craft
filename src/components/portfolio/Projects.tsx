@@ -44,7 +44,7 @@ export function Experience() {
   return (
     <section id="experience" className="px-5 py-16 sm:px-8">
       <div className="mx-auto max-w-5xl">
-        <SectionHeading eyebrow="04" title="Experience" />
+        <SectionHeading eyebrow="04" title="Experience & Education" />
         <div className="relative mt-10 pl-8 sm:pl-12">
           <span aria-hidden className="groove absolute top-2 bottom-2 left-2 w-2 rounded-full" />
           <div className="space-y-6">
